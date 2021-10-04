@@ -31,6 +31,12 @@ const getGames = function (req, res) {
             res.status(500).json(err);
             return;
         }
+        if (games.length == 0) {
+            res.status(400).json({
+                message: "No games found"
+            });
+            return;
+        }
         console.log('Games found. Total', games.length);
         res.json(games);
     });
@@ -46,6 +52,7 @@ const getSingle = function (req, res) {
         return;
     }
     const game = Game.findOne({ _id: gameId }).exec(function (err, game) {
+        // Game.findById(gameId) can also be used
         if (err) {
             console.log('Error finding games');
             res.status(500).json(err);

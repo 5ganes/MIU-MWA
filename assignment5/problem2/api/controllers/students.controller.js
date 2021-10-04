@@ -31,6 +31,12 @@ const getStudents = function (req, res) {
             res.status(500).json(err);
             return;
         }
+        if (students.length == 0) {
+            res.status(400).json({
+                message: "No students found"
+            });
+            return;
+        }
         console.log('Students found. Total', students.length);
         res.json(students);
     });
@@ -45,7 +51,7 @@ const getSingle = function (req, res) {
         });
         return;
     }
-    const student = Student.findOne({ _id: studentId }).exec(function (err, student) {
+    const student = Student.findById(studentId).exec(function (err, student) {
         if (err) {
             console.log('Error finding student');
             res.status(500).json(err);
