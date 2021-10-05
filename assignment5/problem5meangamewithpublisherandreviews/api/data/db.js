@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 require('./games.model');
+require('./reviews.model');
 
 const dbURL = process.env.DB_URL + process.env.DB;
 

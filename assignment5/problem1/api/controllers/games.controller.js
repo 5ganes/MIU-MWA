@@ -32,7 +32,7 @@ const getGames = function (req, res) {
             return;
         }
         if (games.length == 0) {
-            res.status(400).json({
+            res.status(404).json({
                 message: "No games found"
             });
             return;

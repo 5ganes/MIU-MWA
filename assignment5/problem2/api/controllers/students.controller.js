@@ -32,7 +32,7 @@ const getStudents = function (req, res) {
             return;
         }
         if (students.length == 0) {
-            res.status(400).json({
+            res.status(404).json({
                 message: "No students found"
             });
             return;
@@ -63,14 +63,14 @@ const getSingle = function (req, res) {
         }
         else {
             console.log('No student found with given studentId : ', studentId);
-            res.status(400).json({
+            res.status(404).json({
                 "message": "No student found with given studentId - " + studentId
             });
         }
     });
 }
 
-const getCourse = function (req, res) {
+const getCourses = function (req, res) {
     const studentId = req.params.studentId;
     if (!mongoose.isValidObjectId(studentId)) {
         console.log("Given studentId is not valid");
@@ -79,27 +79,69 @@ const getCourse = function (req, res) {
         });
         return;
     }
-    const course = Student.findById(studentId).select('courses').exec(function (err, courses) {
+    const course = Student.findById(studentId).select('courses').exec(function (err, student) {
         if (err) {
-            console.log('Error finding courses');
+            console.log('Error finding student');
             res.status(500).json(err);
             return;
         }
-        if (courses.courses.length > 0) {
-            console.log('Courses found :', courses);
-            res.status(200).json(courses.courses);
+        if (student.courses.length > 0) {
+            console.log('Courses found :', student.courses);
+            res.status(200).json(student.courses);
         }
         else {
             console.log('No courses found with given studentId : ', studentId);
-            res.status(400).json({
+            res.status(404).json({
                 "message": "No courses found with given studentId - " + studentId
             });
         }
     });
 }
 
+const getOneCourse = function (req, res) {
+    console.log("in");
+    const studentId = req.params.studentId;
+    const courseId = req.params.courseId;
+    if (!mongoose.isValidObjectId(studentId) || !mongoose.isValidObjectId(courseId)) {
+        console.log("Given studentId/courseId is not valid");
+        res.status(400).json({
+            "message": "Given studentId/courseId is not valid"
+        });
+        return;
+    }
+    Student.findById(studentId).select("courses").exec(function (err, student) {
+        if (err) {
+            console.log('Error finding student');
+            res.status(500).json(err);
+            return;
+        }
+        if (!student) {
+            console.log('Student not found with studentId :', studentId);
+            res.status(200).json({
+                message: "Student not found with studentId : " + studentId
+            });
+            return;
+        }
+        const course = student.courses.id(courseId);
+        if (course) {
+            console.log('Course found :', course);
+            res.status(200).json(course);
+            return;
+        }
+        else {
+            console.log('No course found with given courseId : ', courseId);
+            res.status(404).json({
+                "message": "No course found with given courseId - " + courseId
+            });
+            return;
+        }
+        res.status(200).json(course);
+    });
+}
+
 module.exports = {
     getStudents: getStudents,
     getSingle: getSingle,
-    getCourse: getCourse
+    getCourses: getCourses,
+    getOneCourse: getOneCourse
 }

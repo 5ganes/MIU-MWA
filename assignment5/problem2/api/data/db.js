@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 require('./students-model.js');
 
-const dbURL = 'mongodb://localhost:27017/SchoolDB';
+const dbURL = process.env.DB_URL + process.env.DB;
 
 mongoose.connect(dbURL);
 mongoose.connection.on("connected", function () {
