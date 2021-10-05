@@ -1,0 +1,13 @@
+# .gitignore
+assignment2/problem1/node_modules/
+assignment2/problem2/node_modules/
+assignment3/problem1meangames/node_modules/
+assignment3/problem2/node_modules/
+assignment4/problem3meangame/node_modules/
+assignment5/problem1/node_modules/
+assignment5/problem2/node_modules/
+assignment5/problem3meangame/node_modules/
+assignment5/problem4meangamewithpublisher/node_modules/
+assignment5/problem6/node_modules/
+assignment5/problem5meangamewithpublisherandreviews/node_modules/
+php/node_modules/
