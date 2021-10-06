@@ -1,0 +1,13 @@
+body{
+    margin: 0; padding: 0; font-size: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header, footer{
+    padding: 2%; background-color: lightblue; text-align: center;
+    font-size: 20px;
+}
+
+section{
+    background-color: black; color: white; font-size: 18px;
+    margin: 2%; padding: 2%;
+}

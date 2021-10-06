@@ -18,7 +18,7 @@ function config($routeProvider) {
             controllerAs: 'toursCtrl'
         })
         .when('/tours/:tourId', {
-            templateUrl: 'tour/singleTour.html',
+            templateUrl: 'singleTour/singleTour.html',
             controller: 'SingleTourController',
             controllerAs: 'singleTourCtrl'
         }).otherwise({
