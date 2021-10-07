@@ -1,0 +1,12 @@
+<h2>List of Games</h2>
+<ul>
+    <li ng-repeat="game in vm.games">
+        <a ng-href="#!/games/{{game._id}}">
+            <strong>Title:</strong> {{game.title | uppercase}},
+        </a>
+        <strong>Year:</strong> {{game.year}},
+        <strong>Price:</strong> {{game.price | currency: USD}},
+        <strong>Publisher:</strong> {{game.publisher.name}}
+        </a>
+    </li>
+</ul>

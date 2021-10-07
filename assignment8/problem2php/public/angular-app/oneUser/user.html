@@ -1,0 +1,13 @@
+<h2>
+    Detail of {{vm.user.name | uppercase}}
+</h2>
+<ul>
+    <li><strong>Gender:</strong> {{vm.user.gender}}</li>
+    <li><strong>Age:</strong> {{vm.user.age}} years</li>
+    <li>
+        <strong>Social Media Used:</strong>
+        <ul>
+            <li ng-repeat="socialMedia in vm.user.socialMedias">{{socialMedia.name}}</li>
+        </ul>
+    </li>
+</ul>

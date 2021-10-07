@@ -1,0 +1,11 @@
+<h2>List of Users</h2>
+<ul>
+    <li ng-repeat="user in vm.users">
+        <a ng-href="#!/users/{{user._id}}">
+            <strong>Name:</strong> {{user.name | uppercase}},
+        </a>
+        <strong>Gender:</strong> {{user.gender}},
+        <strong>Age:</strong> {{user.age}} years
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,12 @@
+body{
+    font-size: 18px; margin: 0; padding: 0;
+}
+header, footer{
+    padding: 1%; background-color: rgb(11, 1, 53); text-align: center;
+}
+footer{
+    position: absolute; bottom: 0; width: 100%;
+}
+section{
+    margin: 1%; padding: 1%;
+}
