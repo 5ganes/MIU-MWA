@@ -1,0 +1,25 @@
+<h3>Job List</h3>
+<ul>
+    <li ng-repeat="job in vm.jobs">
+        <a ng-href="#!/jobs/{{job._id}}">Title: {{job.title}}</a>,
+        Salary: {{job.salary | number: 2}},
+        Location: {{job.location.coordinates}},
+        Post Date: {{job.postDate | date: formatter: longDate}}
+        <!-- <a ng-href="#!/jobs/{{job._id}}/edit">Edit</a> -->
+        <button ng-click="vm.editJob(job._id)">Edit</button>
+        <button ng-click="vm.deleteJob(job._id)">Delete</button>
+    </li>
+</ul>
+
+<h4>Add a Job</h4>
+<form method="POST" name="vm.addUpdateForm" ng-submit="vm.saveJob()">
+
+    Title: <input type="text" name="title" ng-model="vm.jobTitle" required><br><br>
+    Salary: <input type=" number" step="any" name="salary" ng-model="vm.jobSalary" required>
+    <span ng-show="vm.addForm.salary.$dirty && vm.addForm.salary.$invalid && vm.addForm.isSubmitted">Salary should be a
+        number</span><br><br>
+    Description: <input type="text" name="description" ng-model="vm.jobDescription"><br><br>
+    Experience: <input type="text" name="experience" ng-model="vm.jobExperience"><br><br>
+    Post Date: <input type="date" name="postDate" ng-model="vm.jobPostDate"><br><br>
+    <button type="submit">Save Job</button>
+</form>

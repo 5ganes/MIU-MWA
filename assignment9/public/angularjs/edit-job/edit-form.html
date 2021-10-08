@@ -1,0 +1,11 @@
+<h4>Edit a Job</h4>
+<form name="vm.editForm" ng-submit="vm.editJob()">
+    <input type="hidden" name="jobId" value="{{job._id}}">
+    Title: <input type="text" name="title" value="{{vm.job.title}}" required><br><br>
+    Salary: <input type=" number" step="any" name="salary" ng-model="vm.jobSalary" value="{{job.salary}}" required>
+    <span ng-show="vm.addForm.salary.$dirty && vm.addForm.salary.$invalid && vm.addForm.isSubmitted">Salary should be a
+        number</span><br><br>
+    Description: <input type="text" name="description" ng-model="vm.jobDescription" value="{{job.description}}"><br><br>
+    Experience: <input type="text" name="experience" ng-model="vm.jobExperience" value="{{job.experience}}"><br><br>
+    <button type="submit">Update Job</button>
+</form>

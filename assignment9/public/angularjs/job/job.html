@@ -1,0 +1,11 @@
+<h3>Details of {{vm.job.title}}</h3>
+
+<ul>
+    <li>Title: {{vm.job.title}}</li>
+    <li>Salary: {{vm.job.salary}}</li>
+    <li>Location: Type - {{vm.job.location.type}}, Coordinates - {{vm.job.location.coordinates}}</li>
+    <li>Description: {{vm.job.description}}</li>
+    <li>Experience: {{vm.job.experience}}</li>
+    <li>Post Date: {{vm.job.postDate | date: formatter: longDate}}</li>
+    <li>Skills: <span ng-repeat="skill in vm.job.skills">{{skill}}, </span></li>
+</ul>

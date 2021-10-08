@@ -1,0 +1,24 @@
+DB import and exports:
+import from gzip - 
+    mongorestore --db newDB --gzip pathToDBDirectory
+import documents of a collection from json file - 
+    mongoimport --db newDB --collection technology --jsonArray pathToFile/file.json
+export whole db - 
+    mongodump --db dbName (--gzip)
+export a collection - 
+    mongoexport --db newTestDB –-collection technology --out output/technology.json --jsonArray --pretty
+
+
+
+DB Operations:
+use db
+db.createCollection('collectionName')
+
+
+
+commands:
+npm init
+npm i express
+npm i dotenv
+npm install mongoose
+npm i angular angular-route
