@@ -1,3 +1,4 @@
+const e = require('express');
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
@@ -159,10 +160,32 @@ const deleteUser = function (req, res) {
     });
 }
 
+const searchUsers = function (req, res) {
+    const keyword = req.body.keyword;
+    User.find({
+        name: keyword
+    }).exec(function (err, users) {
+        if (err) {
+            console.log("Error searching users");
+            res.status(500).json(err);
+            return;
+        }
+        else if (users.length == 0) {
+            res.status(404).json({
+                message: "No users matched with given keyword"
+            });
+            return;
+        }
+        console.log('Users found');
+        res.status(200).json(users);
+    });
+}
+
 module.exports = {
     getUsers: getUsers,
     getSingle: getSingle,
     addUser: addUser,
     updateUser: updateUser,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    searchUsers: searchUsers
 }

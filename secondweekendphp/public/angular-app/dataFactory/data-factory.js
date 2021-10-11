@@ -6,7 +6,8 @@ function UserFactory($http) {
         getSingleUser: getSingle,
         addOneUser: addOne,
         updateOneUser: updateOne,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        searchUsers: searchUsers
     }
 
     function getAll() {
@@ -31,6 +32,10 @@ function UserFactory($http) {
 
     function deleteUser(userId) {
         return $http.delete('/api/users/' + userId).then(complete).catch(failed);
+    }
+
+    function searchUsers(keyword) {
+        return $http.post('/api/users/search', keyword).then(complete).catch(failed);
     }
 
     function complete(response) {

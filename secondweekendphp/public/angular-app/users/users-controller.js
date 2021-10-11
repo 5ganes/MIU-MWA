@@ -49,7 +49,6 @@ function UsersController(UserFactory) {
             vm.name = response.name;
             vm.gender = response.gender;
             vm.age = parseInt(response.age);
-            getAllUsers();
         });
     };
 

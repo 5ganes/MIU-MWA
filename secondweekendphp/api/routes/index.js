@@ -23,4 +23,7 @@ router.route('/users/:userId/socialmedias/:socialMediaId')
     .put(socialMediaController.update)
     .delete(socialMediaController.delete);
 
+router.route('/users/search')
+    .post(usersController.searchUsers);
+
 module.exports = router;

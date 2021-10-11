@@ -17,6 +17,14 @@
             <li><a ng-href="/">Home</a></li>
             <li><a ng-href="#!/users">Users</a></li>
             <li><a ng-href="#!/register">Register</a></li>
+            <li>
+                <div>
+                    <form method="POST" name="vm.search" ng-submit="vm.searchUser()">
+                        <input type="text" ng-model="vm.keyword">
+                        <input type="submit" value="Search" class="btn btn-success">
+                    </form>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -31,6 +39,7 @@
     <script src="node_modules/angular-route/angular-route.js"></script>
     <script src="angular-app/app.js"></script>
     <script src="angular-app/dataFactory/data-factory.js"></script>
+    <script src="angular-app/main/main.controller.js"></script>
     <script src="angular-app/users/users-controller.js"></script>
     <script src="angular-app/oneUser/user-controller.js"></script>
     <script src="angular-app/register/resgister-controller.js"></script>

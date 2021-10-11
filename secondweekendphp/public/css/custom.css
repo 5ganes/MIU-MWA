@@ -30,3 +30,7 @@ section{
 .error{
     color: red;
 }
+.btn{
+    padding: 4px 15px 4px 15px;
+    margin-top: -4px;
+}
