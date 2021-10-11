@@ -1,0 +1,41 @@
+<h3>List of Users</h3>
+<table class="table table-responsive border-2">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    <tr ng-if="vm.message">
+        <td colspan="4" style="padding: 1%;" class="error">{{vm.message}}</td>
+    </tr>
+    <tr ng-if="vm.users" ng-repeat="user in vm.users">
+        <td>{{user.name}}</td>
+        <td>{{user.gender | uppercase}}</td>
+        <td>{{user.age}} years</td>
+        <td>
+            <a class="btn btn-success" ng-href="#!/users/{{user._id}}">Detail</a>
+            <button class="btn btn-success" ng-click="vm.editUser(user._id)">Edit</button>
+            <button class="btn btn-danger" ng-click="vm.deleteUser(user._id)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<h3>Add User</h3>
+<form class="col-sm-4" method="POST" name="vm.addUpdateForm" ng-submit="vm.saveUser()">
+    <div class="form-group">
+        <strong>Name:</strong> <input type="text" name="name" ng-model="vm.name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <strong>Gender:</strong>
+        <input type="radio" ng-model="vm.gender" value="Male"> Male
+        <input type="radio" ng-model="vm.gender" value="Female"> Female
+    </div>
+    <div class="form-group">
+        <strong>Age:</strong> <input class="form-control" type="text" name="age" ng-model="vm.age">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Save User</button>
+    </div>
+</form>

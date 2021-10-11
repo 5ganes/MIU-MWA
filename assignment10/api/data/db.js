@@ -4,7 +4,15 @@ require('./jobs.model');
 
 const dbURL = process.env.DB_URL + process.env.DB;
 
+// only this commented code can be used
+// mongoose.connect(dbURL).then(function () {
+//     console.log("Mongoose connected to ", dbURL);
+// }).catch(function (error) {
+//     console.log("Error connect mongoose db");
+// });
+
 mongoose.connect(dbURL);
+
 mongoose.connection.on("connected", function () {
     console.log('Mongoose connected to', dbURL);
 });

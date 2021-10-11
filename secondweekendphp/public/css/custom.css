@@ -1,0 +1,32 @@
+body{
+    font-size: 18px; margin: 0; padding: 0;
+}
+header, footer{
+    padding: 1%; background-color: rgb(11, 1, 53); text-align: center;
+}
+
+nav{
+    padding: 1%; background-color: #031d26;
+}
+nav ul{
+    margin: 2px; padding: 0; display: flex;
+}
+nav ul li{
+    list-style: none; border-right: 1px solid; padding: 0.2% 3%;
+}
+nav ul li:last-child{
+    border: none;
+}
+nav ul li a{
+    display: block; width: 100%; padding: 1%; text-decoration: none;
+}
+section{
+    margin: 1%; padding: 1%;
+}
+
+.form-group{
+    margin: 2%;
+}
+.error{
+    color: red;
+}

@@ -1,0 +1,13 @@
+<h3>Detail of {{vm.user.name}}</h3>
+<ul>
+    <li><strong>Name:</strong> {{vm.user.name}}</li>
+    <li><strong>Gender:</strong> {{vm.user.gender | uppercase}}</li>
+    <li><strong>Age:</strong> {{vm.user.age}} years</li>
+    <li>
+        <strong>Social Media Used:</strong>
+        <ul>
+            <li ng-repeat="socialMedia in vm.user.socialMedias">{{socialMedia.name}}</li>
+        </ul>
+    </li>
+</ul>
+<a class="btn btn-success" ng-href="#!/users">Back</a>

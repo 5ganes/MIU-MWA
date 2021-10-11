@@ -8,7 +8,7 @@ function JobsController(JobsFactory) {
         JobsFactory.getAllJobs(0, 15).then(function (response) {
             vm.jobs = response;
         });
-    }
+    };
 
     // add and update job in single function
     vm.saveJob = function () {
@@ -33,7 +33,7 @@ function JobsController(JobsFactory) {
                 });
             }
             else {
-                console.log('job id in update', vm.jobId);
+                // console.log('job id in update', vm.jobId);
                 JobsFactory.updateOneJob(addUpdateJob, vm.jobId).then(function (response) {
                     console.log("Game Saved", response);
                 });
@@ -54,12 +54,12 @@ function JobsController(JobsFactory) {
             vm.jobPostDate = response.postDate;
             // console.log(response);
         });
-    }
+    };
 
     vm.deleteJob = function (jobId) {
         JobsFactory.deleteJob(jobId).then(function (response) {
             console.log(response);
         });
         getAllJobs();
-    }
+    };
 }
