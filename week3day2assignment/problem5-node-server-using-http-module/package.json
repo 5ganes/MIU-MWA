@@ -1,0 +1,22 @@
+{
+  "name": "problem5-node-server-using-http-module",
+  "version": "1.0.0",
+  "description": "node server using built in http module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "server",
+    "using",
+    "built",
+    "in",
+    "http",
+    "module"
+  ],
+  "author": "Ganesh Khatri",
+  "license": "ISC",
+  "dependencies": {}
+}
