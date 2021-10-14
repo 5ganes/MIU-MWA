@@ -11,6 +11,23 @@ export class GamesDataService {
 
   public getGames() {
     const url: string = this.apiBaseUrl + "/games";
+
+    // return this.http.get(url).toPromise();
+    return this.http.get(url);
+
+    // return this.http.get(url).toPromise()
+    //   .then(response => response as Game[])
+    //   .catch(this.handleError);
+  }
+  // public getGame(gameId: string): Promise<Game> {
+  //   const url: string = this.apiBaseUrl + "/games/" + gameId;
+  //   return this.http.get(url).toPromise()
+  //     .then(response => response as Game)
+  //     .catch(this.handleError);
+  // }
+
+  public getSingleGame(gameId: string) {
+    const url: string = this.apiBaseUrl + "/games/" + gameId;
     return this.http.get(url);
   }
 

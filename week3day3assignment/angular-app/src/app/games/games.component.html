@@ -13,7 +13,7 @@
             <td>{{game.price}}</td>
             <td>{{game.year}}</td>
             <td>
-                <a class="btn btn-success" href="/test">Detail</a>
+                <a class="btn btn-success" [routerLink]="['/games', game._id]">Detail</a>
             </td>
         </tr>
     </table>

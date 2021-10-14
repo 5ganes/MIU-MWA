@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GamesDataService } from '../games-data.service';
 
@@ -12,13 +13,16 @@ export class GamesComponent implements OnInit {
 
   games: any;
 
-  constructor(service: GamesDataService) {
+  constructor(private service: GamesDataService, private router: Router) {
     service.getGames().subscribe(data => {
       console.log(data);
       this.games = data;
     });
-    // console.log(this.games.finally());
   }
+
+  // getSingle(gameId: string) {
+  //   this.router.navigate(['/games/' + gameId]);
+  // }
 
   ngOnInit(): void {
 
