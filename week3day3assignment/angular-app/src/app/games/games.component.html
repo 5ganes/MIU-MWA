@@ -1,0 +1,20 @@
+<h3>{{title}}</h3><br>
+
+<div class="game-list">
+    <table class="table table-responsive border-2">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let game of games">
+            <td>{{game.title}}</td>
+            <td>{{game.price}}</td>
+            <td>{{game.year}}</td>
+            <td>
+                <a class="btn btn-success" href="/test">Detail</a>
+            </td>
+        </tr>
+    </table>
+</div>
