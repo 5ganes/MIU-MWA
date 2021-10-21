@@ -23,6 +23,13 @@ export class GamesDataService {
       .catch(this.handleError);
   }
 
+  public addOneGame(game: any) {
+    const url: string = this.apiBaseUrl + "/games/add";
+    return this.http.post(url, game).toPromise()
+      .then(response => response)
+      .catch(this.handleError);
+  }
+
   // public getSingleGame(gameId: string) {
   //   const url: string = this.apiBaseUrl + "/games/" + gameId;
   //   return this.http.get(url);

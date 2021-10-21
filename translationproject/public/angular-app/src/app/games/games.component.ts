@@ -22,6 +22,10 @@ export class GamesComponent implements OnInit {
     })
   }
 
+  deleteGame(gameId: string) {
+    console.log(gameId);
+  }
+
 }
 
 export class Game {
