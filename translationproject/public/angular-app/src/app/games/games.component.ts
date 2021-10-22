@@ -13,7 +13,7 @@ export class GamesComponent implements OnInit {
 
   games: any;
 
-  constructor(private service: GamesDataService) {
+  constructor(private service: GamesDataService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,6 +24,9 @@ export class GamesComponent implements OnInit {
 
   deleteGame(gameId: string) {
     console.log(gameId);
+    this.service.deleteOneGame(gameId).then(response => {
+      this.router.navigate(['/games']);
+    })
   }
 
 }

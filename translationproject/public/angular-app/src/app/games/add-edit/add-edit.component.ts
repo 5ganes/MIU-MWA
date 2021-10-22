@@ -13,6 +13,8 @@ export class AddEditComponent implements OnInit {
   addUpdateGame: any;
   gameId: any;
 
+  game: any;
+
   constructor(
     private service: GamesDataService,
     private router: Router,
@@ -22,13 +24,10 @@ export class AddEditComponent implements OnInit {
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.paramMap.get('gameId')) {
       this.gameId = this.activatedRoute.snapshot.paramMap.get('gameId');
-      console.log(this.activatedRoute.snapshot.paramMap.get('gameId'));
-
       this.service.getSingleGame(this.gameId).then(response => {
-        // this.game = response;
-        // this.gameStars = new Array(parseInt(this.game.rate));
-        // console.log(this.gameStars);
+        this.game = response;
       });
+      // console.log(this.activatedRoute.snapshot.paramMap.get('gameId'));
 
     }
   }
@@ -58,10 +57,19 @@ export class AddEditComponent implements OnInit {
       }
     };
     console.log(this.addUpdateGame);
-    this.service.addOneGame(this.addUpdateGame).then(response => {
-      // console.log("game created", response);
+    if (!this.gameId) {
+      this.service.addOneGame(this.addUpdateGame).then(response => {
+        // console.log("game created", response);
+        this.router.navigate(['/games']);
+      });
+    }
+    else {
+      // this.service.updateOneGame(this.addUpdateGame, this.gameId).then(response => {
+      //   // console.log("game created", response);
+      //   this.router.navigate(['/games']);
+      // });
       this.router.navigate(['/games']);
-    })
+    }
   }
 
 }

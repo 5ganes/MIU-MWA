@@ -30,6 +30,20 @@ export class GamesDataService {
       .catch(this.handleError);
   }
 
+  public updateOneGame(game: any, gameId: string) {
+    const url: string = this.apiBaseUrl + "/games/" + gameId;
+    // return this.http.put(url, game).toPromise()
+    //   .then(response => response)
+    //   .catch(this.handleError);
+  }
+
+  public deleteOneGame(gameId: string) {
+    const url: string = this.apiBaseUrl + "/games/" + gameId;
+    return this.http.delete(url).toPromise()
+      .then(response => response)
+      .catch(this.handleError);
+  }
+
   // public getSingleGame(gameId: string) {
   //   const url: string = this.apiBaseUrl + "/games/" + gameId;
   //   return this.http.get(url);
